@@ -1,0 +1,297 @@
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#03030a;--c1:#00ffe5;--c2:#bf00ff;--c3:#ff2d78;--c4:#ffe800;--c5:#00b4ff;--c6:#ff6b00;
+  --gb:rgba(255,255,255,0.045);--gb2:rgba(255,255,255,0.08);
+  --gbd:rgba(255,255,255,0.09);--gbd2:rgba(255,255,255,0.16);
+  --text:#f0f0ff;--muted:#6a6a9a;--font:'Space Grotesk',sans-serif;--mono:'Space Mono',monospace;
+}
+body{background:var(--bg);color:var(--text);font-family:var(--font);overflow-x:hidden;position:relative}
+.orbs{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.orb{position:absolute;border-radius:50%;filter:blur(90px);opacity:.16}
+.o1{width:550px;height:550px;background:radial-gradient(circle,#bf00ff,transparent 70%);top:-120px;left:-80px;animation:d1 20s ease-in-out infinite alternate}
+.o2{width:650px;height:650px;background:radial-gradient(circle,#00ffe5,transparent 70%);top:25%;right:-160px;animation:d2 25s ease-in-out infinite alternate}
+.o3{width:450px;height:450px;background:radial-gradient(circle,#ff2d78,transparent 70%);bottom:-80px;left:38%;animation:d3 17s ease-in-out infinite alternate}
+@keyframes d1{to{transform:translate(70px,50px) scale(1.1)}}
+@keyframes d2{to{transform:translate(-50px,70px) scale(1.06)}}
+@keyframes d3{to{transform:translate(60px,-40px) scale(1.09)}}
+.wrap{position:relative;z-index:1;max-width:1400px;margin:0 auto;padding:0 22px 52px}
+.gl{background:var(--gb);backdrop-filter:blur(20px) saturate(160%);-webkit-backdrop-filter:blur(20px) saturate(160%);border:1px solid var(--gbd);border-radius:20px;position:relative;overflow:hidden}
+.gl::before{content:'';position:absolute;inset:0;border-radius:20px;background:linear-gradient(135deg,rgba(255,255,255,0.07) 0%,transparent 55%,rgba(255,255,255,0.02) 100%);pointer-events:none;z-index:1}
+.zi{position:relative;z-index:2}
+header{padding:34px 0 26px;display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:14px;margin-bottom:26px}
+.pr{display:flex;align-items:center;gap:13px;margin-bottom:7px}
+.dot{width:13px;height:13px;position:relative;flex-shrink:0}
+.dot::before,.dot::after{content:'';position:absolute;inset:0;border-radius:50%;background:var(--c1)}
+.dot::before{animation:pr 2.2s ease-out infinite;opacity:.5}
+.dot::after{width:7px;height:7px;top:3px;left:3px;box-shadow:0 0 10px var(--c1)}
+@keyframes pr{to{transform:scale(2.6);opacity:0}}
+h1{font-size:27px;font-weight:700;letter-spacing:-.4px;color:#fff}
+h1 em{font-style:normal;background:linear-gradient(90deg,var(--c1),var(--c2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.sub{font-size:12px;color:var(--muted);font-family:var(--mono);margin-top:3px;letter-spacing:.3px}
+.frow{display:flex;gap:7px}
+.fb{background:var(--gb);backdrop-filter:blur(12px);border:1px solid var(--gbd);color:var(--muted);padding:8px 18px;border-radius:50px;font-family:var(--font);font-size:12.5px;font-weight:500;cursor:pointer;transition:all .22s;position:relative;overflow:hidden}
+.fb::before{content:'';position:absolute;inset:0;border-radius:50px;background:linear-gradient(135deg,rgba(255,255,255,.05),transparent);pointer-events:none}
+.fb:hover{border-color:var(--gbd2);color:var(--text)}
+.fb.on{background:rgba(0,255,229,.1);border-color:rgba(0,255,229,.38);color:var(--c1);text-shadow:0 0 10px var(--c1)}
+.div{height:1px;background:linear-gradient(90deg,transparent,var(--c2),var(--c1),var(--c5),transparent);opacity:.28;margin-bottom:26px;border-radius:1px}
+.kg{display:grid;grid-template-columns:repeat(6,1fr);gap:13px;margin-bottom:22px}
+.kc{padding:19px 21px;border-radius:19px;cursor:default;transition:transform .22s,box-shadow .22s;background:var(--gb);backdrop-filter:blur(20px) saturate(160%);-webkit-backdrop-filter:blur(20px) saturate(160%);border:1px solid var(--gbd);position:relative;overflow:hidden}
+.kc::before{content:'';position:absolute;inset:0;border-radius:19px;background:linear-gradient(135deg,rgba(255,255,255,0.065) 0%,transparent 60%);pointer-events:none}
+.kc::after{content:'';position:absolute;top:0;left:0;right:0;height:1.5px;border-radius:19px 19px 0 0}
+.k1::after{background:linear-gradient(90deg,#00ffe5,transparent)}
+.k2::after{background:linear-gradient(90deg,#00b4ff,transparent)}
+.k3::after{background:linear-gradient(90deg,#bf00ff,transparent)}
+.k4::after{background:linear-gradient(90deg,#ff6b00,transparent)}
+.k5::after{background:linear-gradient(90deg,#ffe800,transparent)}
+.k6::after{background:linear-gradient(90deg,#ff2d78,transparent)}
+.kc:hover{transform:translateY(-4px);box-shadow:0 18px 55px rgba(0,0,0,.55)}
+.kl{font-size:10px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin-bottom:11px;position:relative;z-index:2}
+.kv{font-size:20px;font-weight:700;color:#fff;letter-spacing:-.5px;line-height:1;position:relative;z-index:2}
+.kvar{font-size:11px;margin-top:7px;display:flex;align-items:center;gap:3px;position:relative;z-index:2}
+.up{color:#00ffe5}.dn{color:#ff2d78}.na{color:var(--muted)}
+.cg{display:grid;gap:16px;margin-bottom:16px}
+.r2{grid-template-columns:1fr 1fr}.r3{grid-template-columns:1.8fr 1fr 1fr}.r2b{grid-template-columns:1.2fr 1fr}
+.cc{padding:22px;background:var(--gb);backdrop-filter:blur(20px) saturate(160%);-webkit-backdrop-filter:blur(20px) saturate(160%);border:1px solid var(--gbd);border-radius:19px;position:relative;overflow:hidden}
+.cc::before{content:'';position:absolute;inset:0;border-radius:19px;background:linear-gradient(135deg,rgba(255,255,255,0.055) 0%,transparent 55%);pointer-events:none}
+.ct{font-size:13.5px;font-weight:600;color:#fff;margin-bottom:3px;position:relative;z-index:2}
+.ci{font-size:11px;color:var(--muted);margin-bottom:16px;line-height:1.55;position:relative;z-index:2}
+.hl1{color:#00ffe5}.hl2{color:#bf00ff}.hl3{color:#ff2d78}.hl4{color:#ffe800}.hl5{color:#00b4ff}.hl6{color:#ff6b00}
+.leg{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:13px;position:relative;z-index:2}
+.li{display:flex;align-items:center;gap:5px;font-size:10.5px;color:var(--muted)}
+.ls{width:8px;height:8px;border-radius:2px;flex-shrink:0}
+.cw{position:relative;z-index:2}
+.tc{padding:22px;border-radius:19px;background:var(--gb);backdrop-filter:blur(20px) saturate(160%);-webkit-backdrop-filter:blur(20px) saturate(160%);border:1px solid var(--gbd);margin-top:16px;overflow-x:auto;position:relative}
+.tc::before{content:'';position:absolute;inset:0;border-radius:19px;background:linear-gradient(135deg,rgba(255,255,255,0.05) 0%,transparent 50%);pointer-events:none}
+table{width:100%;border-collapse:collapse;font-size:12px;position:relative;z-index:2}
+thead th{text-align:right;padding:9px 12px;font-size:9.5px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:var(--muted);border-bottom:1px solid rgba(255,255,255,.1)}
+thead th:first-child{text-align:left}
+tbody tr{border-bottom:1px solid rgba(255,255,255,.04);transition:background .14s}
+tbody tr:hover{background:rgba(255,255,255,.04)}
+tbody tr:last-child{border-bottom:none}
+td{padding:10px 12px;text-align:right;color:#9090bb}
+td:first-child{text-align:left;font-weight:600;color:#ddddf0}
+tfoot td{padding:11px 12px;font-weight:700;border-top:1px solid rgba(255,255,255,.1);text-align:right;color:#ddddf0}
+tfoot td:first-child{text-align:left}
+.t1{color:#00ffe5}.t5{color:#00b4ff}
+footer{text-align:center;font-size:10.5px;color:#2a2a45;padding:26px 0 6px;font-family:var(--mono);letter-spacing:.3px;border-top:1px solid rgba(255,255,255,.05);margin-top:6px}
+.fade{animation:fu .5s cubic-bezier(.22,1,.36,1) both}
+@keyframes fu{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+.da{animation-delay:.04s}.db{animation-delay:.09s}.dc{animation-delay:.14s}.dd{animation-delay:.19s}.de{animation-delay:.24s}.df{animation-delay:.29s}
+@media(max-width:1100px){.kg{grid-template-columns:repeat(3,1fr)}.r3{grid-template-columns:1fr 1fr}.r2{grid-template-columns:1fr}}
+@media(max-width:700px){.kg{grid-template-columns:repeat(2,1fr)}.r2b{grid-template-columns:1fr}}
+</style>
+
+<div class="orbs"><div class="orb o1"></div><div class="orb o2"></div><div class="orb o3"></div></div>
+<div class="wrap">
+
+<header class="fade">
+  <div>
+    <div class="pr"><div class="dot"></div><h1>TechStore <em>Dashboard</em></h1></div>
+    <div class="sub">// análise executiva · nov/2024 – abr/2026 · 18 meses · 32.345 pedidos</div>
+  </div>
+  <div class="frow">
+    <button class="fb" onclick="sf(6)" id="f6">Últimos 6M</button>
+    <button class="fb" onclick="sf(12)" id="f12">Últimos 12M</button>
+    <button class="fb on" onclick="sf(0)" id="f0">Tudo (18M)</button>
+  </div>
+</header>
+
+<div class="div"></div>
+
+<div class="kg">
+  <div class="kc k1 fade da"><div class="kl">Receita Total</div><div class="kv" id="v0"></div><div id="r0"></div></div>
+  <div class="kc k2 fade db"><div class="kl">Lucro Total</div><div class="kv" id="v1"></div><div id="r1"></div></div>
+  <div class="kc k3 fade dc"><div class="kl">Margem</div><div class="kv" id="v2"></div><div id="r2"></div></div>
+  <div class="kc k4 fade dd"><div class="kl">Ticket Médio</div><div class="kv" id="v3"></div><div id="r3"></div></div>
+  <div class="kc k5 fade de"><div class="kl">Total Pedidos</div><div class="kv" id="v4"></div><div id="r4"></div></div>
+  <div class="kc k6 fade df"><div class="kl">Custo Total</div><div class="kv" id="v5"></div><div id="r5"></div></div>
+</div>
+
+<div class="cg r2 fade" style="animation-delay:.32s">
+  <div class="cc">
+    <div class="ct">Evolução Mensal — Receita vs Lucro</div>
+    <div class="ci">Picos em <span class="hl4">nov/dez 2025</span> (Black Friday). Lucro segue receita com margem estável em ~19%.</div>
+    <div class="leg"><span class="li"><span class="ls" style="background:#00b4ff"></span>Receita</span><span class="li"><span class="ls" style="background:#00ffe5"></span>Lucro</span></div>
+    <div class="cw" style="height:258px"><canvas id="lc" role="img" aria-label="Evolução mensal receita e lucro">Gráfico de linhas receita vs lucro 18 meses.</canvas></div>
+  </div>
+  <div class="cc">
+    <div class="ct">Margem de Lucro ao Longo do Tempo</div>
+    <div class="ci">Oscila entre <span class="hl2">17,3% e 19,7%</span>. Compressão sazonal em novembro/dezembro.</div>
+    <div class="leg"><span class="li"><span class="ls" style="background:#bf00ff"></span>Margem %</span></div>
+    <div class="cw" style="height:258px"><canvas id="ac" role="img" aria-label="Margem de lucro mensal">Gráfico de área margem de lucro.</canvas></div>
+  </div>
+</div>
+
+<div class="cg r3 fade" style="animation-delay:.37s">
+  <div class="cc">
+    <div class="ct">Receita por Categoria</div>
+    <div class="ci"><span class="hl5">Notebooks lideram</span> com R$ 34M (29,7%). Tablets e Smartphones somam 49% adicionais.</div>
+    <div class="leg" id="catL"></div>
+    <div class="cw" style="height:218px"><canvas id="catC" role="img" aria-label="Receita por categoria">Barras horizontais por categoria.</canvas></div>
+  </div>
+  <div class="cc">
+    <div class="ct">Canal de Venda</div>
+    <div class="ci"><span class="hl1">Site Próprio</span> concentra 39,4% da receita total gerada.</div>
+    <div class="leg" id="cnL"></div>
+    <div class="cw" style="height:218px"><canvas id="cnC" role="img" aria-label="Canal de venda donut">Donut canal de venda.</canvas></div>
+  </div>
+  <div class="cc">
+    <div class="ct">Forma de Pagamento</div>
+    <div class="ci"><span class="hl6">Crédito domina</span> com 55,3%. PIX já representa 25% e cresce.</div>
+    <div class="leg" id="pgL"></div>
+    <div class="cw" style="height:218px"><canvas id="pgC" role="img" aria-label="Formas de pagamento donut">Donut pagamento.</canvas></div>
+  </div>
+</div>
+
+<div class="cg r2b fade" style="animation-delay:.42s">
+  <div class="cc">
+    <div class="ct">Top 10 Produtos por Receita</div>
+    <div class="ci"><span class="hl4">MacBook Air M2</span> lidera com R$ 16,6M — 14,5% da receita total da loja.</div>
+    <div class="cw" style="height:385px"><canvas id="prC" role="img" aria-label="Top 10 produtos">Barras horizontais top produtos.</canvas></div>
+  </div>
+  <div class="cc">
+    <div class="ct">Receita por Região</div>
+    <div class="ci"><span class="hl1">Sudeste domina</span> com 50,4%. Sul e Nordeste disputam 2º e 3º lugar.</div>
+    <div class="cw" style="height:196px"><canvas id="rgC" role="img" aria-label="Receita por região">Barras por região.</canvas></div>
+    <div style="height:14px"></div>
+    <div class="ct">Top 5 Vendedores</div>
+    <div class="ci"><span class="hl3">Diego Santos</span> lidera com R$ 9,98M. Top 5 muito equilibrados.</div>
+    <div class="cw" style="height:140px"><canvas id="vnC" role="img" aria-label="Top 5 vendedores">Barras vendedores.</canvas></div>
+  </div>
+</div>
+
+<div class="tc fade" style="animation-delay:.47s">
+  <div class="ct zi" style="margin-bottom:4px">Resumo Mensal Detalhado</div>
+  <div class="ci zi">18 meses completos — receita, custo, lucro e margem período a período.</div>
+  <table>
+    <thead><tr><th>Período</th><th>Pedidos</th><th>Receita</th><th>Custo</th><th>Lucro</th><th>Margem</th></tr></thead>
+    <tbody id="tb"></tbody><tfoot id="tf"></tfoot>
+  </table>
+</div>
+
+<footer>// dados fictícios — techstore brasil · gerado em 26/04/2026 · 32.345 transações analisadas</footer>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+const MD=[{m:'Nov/24',r:7041796.70,c:5822870,l:1218926.70,p:1975},{m:'Dez/24',r:6886294,c:5545060,l:1341234,p:1921},{m:'Jan/25',r:3929375.80,c:3157320,l:772055.80,p:1107},{m:'Fev/25',r:4182189.25,c:3369770,l:812419.25,p:1168},{m:'Mar/25',r:5591389,c:4510070,l:1081319,p:1584},{m:'Abr/25',r:5328095.55,c:4286280,l:1041815.55,p:1574},{m:'Mai/25',r:7319049.40,c:5916570,l:1402479.40,p:1955},{m:'Jun/25',r:6348878.85,c:5123330,l:1225548.85,p:1767},{m:'Jul/25',r:6325362.50,c:5106560,l:1218802.50,p:1749},{m:'Ago/25',r:6866069.55,c:5537740,l:1328329.55,p:1917},{m:'Set/25',r:5909703.10,c:4747210,l:1162493.10,p:1709},{m:'Out/25',r:6463395,c:5199590,l:1263805,p:1796},{m:'Nov/25',r:9046534.30,c:7464790,l:1581744.30,p:2679},{m:'Dez/25',r:9065581.30,c:7290570,l:1775011.30,p:2606},{m:'Jan/26',r:5231994.55,c:4206540,l:1025454.55,p:1494},{m:'Fev/26',r:5326706.60,c:4281240,l:1045466.60,p:1505},{m:'Mar/26',r:6939042.95,c:5591430,l:1347612.95,p:1935},{m:'Abr/26',r:6793528.65,c:5459560,l:1333968.65,p:1904}];
+const CATS={Notebooks:34011660.25,Tablets:30976487,Smartphones:25944745.90,Monitores:16538317.25,Acessórios:7123776.65};
+const CANAIS={'Site Próprio':45150805.40,'Mercado Livre':28919496,'Amazon':21113857.55,'Loja Física SP':11466524.30,'Loja Física RJ':7944303.80};
+const REGS={Sudeste:57714791.85,Sul:20904128.40,Nordeste:19018102.10,'Centro-Oeste':9339396.90,Norte:7618567.80};
+const PAGS={'Cartão Crédito':63329631.70,PIX:28601678.70,Boleto:13783734.90,'Cartão Débito':8879941.75};
+const PRODS=[['MacBook Air M2',16596855.70],['iPad Air',14380360.20],['Samsung Tab S9',11027948.80],['iPhone 15',10191571.65],['Galaxy S24',7916393.55],['Monitor Samsung 32"',6778006.95],['Dell Inspiron 15',6305198],['Acer Aspire 5',5835455.85],['Xiaomi Pad 6',5568178],['LG 27" 4K',5495960.70]];
+const VENDS=[['Diego Santos',9984159.70],['Bruno Costa',9942197],['Carla Oliveira',9751385.45],['Henrique Rocha',9679883.70],['Ana Silva',9658137.95]];
+
+let CHS={};
+const fB=v=>{if(v>=1e6)return'R$ '+(v/1e6).toFixed(1).replace('.',',')+' M';if(v>=1e3)return'R$ '+(v/1e3).toFixed(0)+'K';return'R$ '+v.toFixed(0)};
+const fF=v=>'R$ '+v.toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2});
+const fN=v=>v.toLocaleString('pt-BR');
+const TT={backgroundColor:'rgba(4,4,18,0.94)',borderColor:'rgba(255,255,255,0.13)',borderWidth:1,titleColor:'#f0f0ff',bodyColor:'#6a6a9a',padding:13,cornerRadius:11,titleFont:{family:"'Space Grotesk',sans-serif",weight:'600',size:12.5},bodyFont:{family:"'Space Grotesk',sans-serif",size:11.5}};
+const GR={color:'rgba(255,255,255,0.05)'};
+const TK={color:'#484878',font:{family:"'Space Grotesk',sans-serif",size:11}};
+
+function gd(m){return m===0?MD:MD.slice(-m)}
+function kp(d){const r=d.reduce((s,x)=>s+x.r,0),c=d.reduce((s,x)=>s+x.c,0),l=d.reduce((s,x)=>s+x.l,0),p=d.reduce((s,x)=>s+x.p,0);return{r,c,l,p,mg:l/r*100,tk:r/p}}
+function vh(v,sfx,lbl){const u=v>=0;return`<div class="kvar ${u?'up':'dn'}">${u?'▲':'▼'} ${Math.abs(v).toFixed(1)}${sfx} <span style="opacity:.55;font-size:9.5px">${lbl}</span></div>`}
+function leg(id,labels,colors){const el=document.getElementById(id);if(el)el.innerHTML=labels.map((l,i)=>`<span class="li"><span class="ls" style="background:${colors[i]}"></span>${l}</span>`).join('')}
+
+function sf(m){
+  document.querySelectorAll('.fb').forEach(b=>b.classList.remove('on'));
+  document.getElementById('f'+m).classList.add('on');
+  upd(m);
+}
+
+function upd(m){
+  const data=gd(m),k=kp(data),h=Math.floor(data.length/2),k1=kp(data.slice(0,h)),k2=kp(data.slice(h));
+  const vals=[fB(k.r),fB(k.l),k.mg.toFixed(1)+'%','R$ '+Math.round(k.tk).toLocaleString('pt-BR'),fN(k.p),fB(k.c)];
+  vals.forEach((v,i)=>document.getElementById('v'+i).textContent=v);
+  const pct=[(k2.r-k1.r)/k1.r*100,(k2.l-k1.l)/k1.l*100,k2.mg-k1.mg,(k2.tk-k1.tk)/k1.tk*100,(k2.p-k1.p)/k1.p*100,0];
+  const sfxs=['%','%','pp','%','%',''];
+  pct.forEach((v,i)=>{
+    const el=document.getElementById('r'+i);
+    if(i===5){el.innerHTML='<div class="kvar na">— total do período</div>';return}
+    el.innerHTML=vh(v,sfxs[i],'vs. metade ant.');
+  });
+
+  const lbs=data.map(d=>d.m),rs=data.map(d=>d.r),ls=data.map(d=>d.l),mgs=data.map(d=>+(d.l/d.r*100).toFixed(2));
+
+  if(CHS.lc)CHS.lc.destroy();
+  CHS.lc=new Chart('lc',{type:'line',data:{labels:lbs,datasets:[
+    {label:'Receita',data:rs,borderColor:'#00b4ff',backgroundColor:'rgba(0,180,255,0.07)',fill:true,tension:.38,borderWidth:2.5,pointRadius:3,pointHoverRadius:6,pointBackgroundColor:'#00b4ff'},
+    {label:'Lucro',data:ls,borderColor:'#00ffe5',backgroundColor:'rgba(0,255,229,0.06)',fill:true,tension:.38,borderWidth:2.5,pointRadius:3,pointHoverRadius:6,pointBackgroundColor:'#00ffe5',borderDash:[7,4]}
+  ]},options:{responsive:true,maintainAspectRatio:false,interaction:{mode:'index',intersect:false},
+    plugins:{legend:{display:false},tooltip:{...TT,callbacks:{label:c=>`${c.dataset.label}: ${fF(c.raw)}`}}},
+    scales:{x:{ticks:{...TK,maxRotation:45},grid:GR,border:{color:'rgba(255,255,255,.04)'}},y:{ticks:{...TK,callback:v=>fB(v)},grid:GR,border:{color:'rgba(255,255,255,.04)'}}}}
+  });
+
+  if(CHS.ac)CHS.ac.destroy();
+  CHS.ac=new Chart('ac',{type:'line',data:{labels:lbs,datasets:[{label:'Margem',data:mgs,borderColor:'#bf00ff',backgroundColor:'rgba(191,0,255,0.09)',fill:true,tension:.42,borderWidth:2.5,pointRadius:3,pointHoverRadius:6,pointBackgroundColor:'#bf00ff'}]},
+    options:{responsive:true,maintainAspectRatio:false,interaction:{mode:'index',intersect:false},
+      plugins:{legend:{display:false},tooltip:{...TT,callbacks:{label:c=>`Margem: ${c.raw.toFixed(2)}%`}}},
+      scales:{x:{ticks:{...TK,maxRotation:45},grid:GR,border:{color:'rgba(255,255,255,.04)'}},y:{ticks:{...TK,callback:v=>v.toFixed(1)+'%'},grid:GR,border:{color:'rgba(255,255,255,.04)'},min:15,max:22}}}
+  });
+
+  const ck=Object.keys(CATS),cv=Object.values(CATS);
+  const catCols=['#00b4ff','#00ffe5','#bf00ff','#ff2d78','#ffe800'];
+  leg('catL',ck,catCols);
+  if(CHS.cat)CHS.cat.destroy();
+  CHS.cat=new Chart('catC',{type:'bar',data:{labels:ck,datasets:[{data:cv,backgroundColor:catCols,borderRadius:6,borderSkipped:false}]},
+    options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{display:false},tooltip:{...TT,callbacks:{label:c=>`Receita: ${fF(c.raw)}`}}},
+      scales:{x:{ticks:{...TK,callback:v=>fB(v)},grid:GR,border:{color:'rgba(255,255,255,.04)'}},y:{ticks:{...TK},grid:{display:false},border:{display:false}}}}
+  });
+
+  const cnk=Object.keys(CANAIS),cnv=Object.values(CANAIS);
+  const cnCols=['#00ffe5','#00b4ff','#bf00ff','#ff6b00','#ffe800'];
+  leg('cnL',cnk,cnCols);
+  if(CHS.cn)CHS.cn.destroy();
+  CHS.cn=new Chart('cnC',{type:'doughnut',data:{labels:cnk,datasets:[{data:cnv,backgroundColor:cnCols,borderColor:'rgba(0,0,0,0)',borderWidth:0,hoverOffset:10}]},
+    options:{responsive:true,maintainAspectRatio:false,cutout:'70%',plugins:{legend:{display:false},tooltip:{...TT,callbacks:{label:c=>`${fF(c.raw)} (${(c.raw/cnv.reduce((a,b)=>a+b,0)*100).toFixed(1)}%)`}}}}
+  });
+
+  const pgk=Object.keys(PAGS),pgv=Object.values(PAGS);
+  const pgCols=['#00b4ff','#00ffe5','#ff6b00','#bf00ff'];
+  leg('pgL',pgk,pgCols);
+  if(CHS.pg)CHS.pg.destroy();
+  CHS.pg=new Chart('pgC',{type:'doughnut',data:{labels:pgk,datasets:[{data:pgv,backgroundColor:pgCols,borderColor:'rgba(0,0,0,0)',borderWidth:0,hoverOffset:10}]},
+    options:{responsive:true,maintainAspectRatio:false,cutout:'70%',plugins:{legend:{display:false},tooltip:{...TT,callbacks:{label:c=>`${fF(c.raw)} (${(c.raw/pgv.reduce((a,b)=>a+b,0)*100).toFixed(1)}%)`}}}}
+  });
+
+  const prCols=PRODS.map((_,i)=>`hsl(${175-i*9},100%,${57-i*1.2}%)`);
+  if(CHS.pr)CHS.pr.destroy();
+  CHS.pr=new Chart('prC',{type:'bar',data:{labels:PRODS.map(p=>p[0]),datasets:[{data:PRODS.map(p=>p[1]),backgroundColor:prCols,borderRadius:7,borderSkipped:false}]},
+    options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{display:false},tooltip:{...TT,callbacks:{label:c=>`${fF(c.raw)}`}}},
+      scales:{x:{ticks:{...TK,callback:v=>fB(v)},grid:GR,border:{color:'rgba(255,255,255,.04)'}},y:{ticks:{...TK,font:{size:10.5,family:"'Space Grotesk',sans-serif"}},grid:{display:false},border:{display:false}}}}
+  });
+
+  const rgk=Object.keys(REGS),rgv=Object.values(REGS);
+  const rgCols=['#00ffe5','#00b4ff','#bf00ff','#ff2d78','#ffe800'];
+  if(CHS.rg)CHS.rg.destroy();
+  CHS.rg=new Chart('rgC',{type:'bar',data:{labels:rgk,datasets:[{data:rgv,backgroundColor:rgCols,borderRadius:6,borderSkipped:false}]},
+    options:{responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{display:false},tooltip:{...TT,callbacks:{label:c=>`${fF(c.raw)}`}}},
+      scales:{x:{ticks:{...TK},grid:{display:false},border:{display:false}},y:{ticks:{...TK,callback:v=>fB(v)},grid:GR,border:{color:'rgba(255,255,255,.04)'}}}}
+  });
+
+  const vnCols=['#ff2d78','#e0246a','#c21b5c','#a4124e','#860940'];
+  if(CHS.vn)CHS.vn.destroy();
+  CHS.vn=new Chart('vnC',{type:'bar',data:{labels:VENDS.map(v=>v[0].split(' ')[0]),datasets:[{data:VENDS.map(v=>v[1]),backgroundColor:vnCols,borderRadius:5,borderSkipped:false}]},
+    options:{responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{display:false},tooltip:{...TT,callbacks:{title:c=>[VENDS[c[0].dataIndex][0]],label:c=>`Receita: ${fF(c.raw)}`}}},
+      scales:{x:{ticks:{...TK},grid:{display:false},border:{display:false}},y:{ticks:{...TK,callback:v=>fB(v)},grid:GR,border:{color:'rgba(255,255,255,.04)'}}}}
+  });
+
+  let tR=0,tC=0,tL=0,tP=0;
+  document.getElementById('tb').innerHTML=data.map(d=>{
+    tR+=d.r;tC+=d.c;tL+=d.l;tP+=d.p;
+    const mg=(d.l/d.r*100);
+    return`<tr><td>${d.m}</td><td>${fN(d.p)}</td><td class="t5">${fF(d.r)}</td><td>${fF(d.c)}</td><td class="t1">${fF(d.l)}</td><td class="t1">${mg.toFixed(1)}%</td></tr>`;
+  }).join('');
+  document.getElementById('tf').innerHTML=`<tr><td>TOTAL</td><td>${fN(tP)}</td><td class="t5">${fF(tR)}</td><td>${fF(tC)}</td><td class="t1">${fF(tL)}</td><td class="t1">${(tL/tR*100).toFixed(1)}%</td></tr>`;
+}
+
+window.addEventListener('load',()=>setTimeout(()=>upd(0),150));
+</script>
